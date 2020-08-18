@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog.yaml
+  - changeSet:
+      id: 1
+      author: admin
+      changes:
+        - createTable:
+            tableName: test_table
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: value
+                  type: varchar(250)
+                  constraints:
+                    nullable: false

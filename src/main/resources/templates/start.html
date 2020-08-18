@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Get starting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <form method="POST" action="/save">
+        <input name = "saveString" type = "text" value = "" />
+        <input type="submit" value="Save" />
+    </form>
+    <br>
+    <form method="POST" action="/delete-all">
+        <input type = "hidden" name = "deleteAll" value = "1" />
+        <input type="submit" value="Delete All" />
+    </form>
+    <br>
+    <h3>Database contains:</h3>
+    <th:block th:each="item : ${all}">
+        <form method="POST" action="/delete">
+            <input type="hidden" name = "id" th:value="${item.id}" />
+            <th:block th:text="${item.value}" ></th:block>
+            <input type="submit" value="Delete" />
+        </form>
+    </th:block>
+
+
+</body>
+</html>
