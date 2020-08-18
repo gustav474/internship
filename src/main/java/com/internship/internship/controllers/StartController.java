@@ -37,7 +37,7 @@ public class StartController {
     }
 
     @PostMapping("/delete")
-    public String delete(@RequestParam(name = "id") String id, Model model) {
+    public String delete(@RequestParam(name = "id") String id) {
         log.info("/delete" + "?id=" + id);
         repository.deleteById(Long.valueOf(id));
 
